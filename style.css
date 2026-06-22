@@ -912,3 +912,122 @@ body[lang="ar"] .hero-badge { letter-spacing: 1px; }
   .team-grid { grid-template-columns: 1fr; }
   .topbar-cta { display: none; }
 }
+
+/* ==================== Stats Section ==================== */
+.stats-section {
+  padding: 60px 0;
+  background: var(--dark-card);
+  border-top: 1px solid var(--dark-border);
+  border-bottom: 1px solid var(--dark-border);
+}
+
+.stats-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.stat-card {
+  background: var(--dark);
+  border: 1px solid var(--dark-border);
+  border-radius: 12px;
+  padding: 28px 20px;
+  text-align: center;
+  transition: all 0.3s;
+}
+
+.stat-card:hover {
+  border-color: var(--gold-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+}
+
+.stat-icon {
+  font-size: 28px;
+  margin-bottom: 12px;
+}
+
+.stat-value {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--gold);
+  font-family: var(--font-en);
+  letter-spacing: -0.5px;
+  margin-bottom: 6px;
+}
+
+.stat-label {
+  font-size: 13px;
+  color: var(--gray);
+  letter-spacing: 0.3px;
+}
+
+/* Stats Chart */
+.stats-chart {
+  max-width: 720px;
+  margin: 32px auto 0;
+  padding: 24px;
+  background: var(--dark);
+  border: 1px solid var(--dark-border);
+  border-radius: 12px;
+}
+
+.st-bars {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 8px;
+  height: 80px;
+  padding: 0 4px;
+}
+
+.st-bar-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.st-bar-count {
+  font-size: 11px;
+  color: var(--gray);
+  font-family: var(--font-en);
+}
+
+.st-bar {
+  width: 100%;
+  max-width: 40px;
+  background: rgba(201,168,76,0.3);
+  border-radius: 4px 4px 0 0;
+  transition: all 0.6s ease;
+  min-height: 4px;
+}
+
+.st-bar.active {
+  background: var(--gold);
+}
+
+.st-bar-label {
+  font-size: 10px;
+  color: #555;
+  margin-top: 4px;
+}
+
+.stats-note {
+  text-align: center;
+  font-size: 12px;
+  color: #444;
+  margin-top: 16px;
+}
+
+@media (max-width: 768px) {
+  .stats-cards {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .stat-value { font-size: 28px; }
+  .stats-chart { padding: 16px; }
+}
