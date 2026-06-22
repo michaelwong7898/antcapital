@@ -1,6 +1,5 @@
 /**
- * Ant Capital - 访问统计
- * 仅展示总访问量
+ * Ant Capital - 底部访问统计小横幅
  */
 (function () {
   'use strict';
@@ -20,30 +19,11 @@
     return total;
   }
 
-  function getLang() {
-    try { return localStorage.getItem('ant-lang') || 'en'; } catch (e) { return 'en'; }
-  }
-
-  var LABELS = {
-    en: { label: 'Total Visits' },
-    ar: { label: 'إجمالي الزيارات' },
-    zh: { label: '总访问量' }
-  };
-
   function render(total) {
-    var lang = getLang();
-    var L = LABELS[lang] || LABELS.en;
-
     var html =
-      '<section class="stats-section">' +
-      '  <div class="container">' +
-      '    <div class="stat-single">' +
-      '      <div class="stat-icon">👁</div>' +
-      '      <div class="stat-value" id="st-total">' + total + '</div>' +
-      '      <div class="stat-label">' + L.label + '</div>' +
-      '    </div>' +
-      '  </div>' +
-      '</section>';
+      '<div class="stats-banner">' +
+      '  <span class="stats-banner-text">👁 ' + total + '</span>' +
+      '</div>';
 
     var footer = document.querySelector('footer.footer');
     if (footer) {
@@ -53,7 +33,6 @@
     }
   }
 
-  // Init
   var total = track();
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', function () { render(total); });
