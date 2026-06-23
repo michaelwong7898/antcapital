@@ -291,15 +291,15 @@ img { max-width: 100%; }
 
 .grid-3 {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
 }
 
 .card {
   background: var(--dark);
   border: 1px solid var(--dark-border);
   border-radius: 12px;
-  padding: 36px;
+  padding: 24px 20px;
   transition: all 0.3s;
 }
 
@@ -310,20 +310,20 @@ img { max-width: 100%; }
 }
 
 .card-icon {
-  font-size: 36px;
-  margin-bottom: 20px;
+  font-size: 30px;
+  margin-bottom: 14px;
 }
 
 .card h3 {
-  font-size: 20px;
+  font-size: 17px;
   font-weight: 600;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
 .card p {
   color: var(--gray-light);
-  font-size: 15px;
-  line-height: 1.7;
+  font-size: 13px;
+  line-height: 1.6;
 }
 
 /* ==================== Sectors ==================== */
@@ -892,6 +892,10 @@ img { max-width: 100%; }
 body[lang="ar"] .hero-badge { letter-spacing: 1px; }
 
 /* ==================== Responsive ==================== */
+@media (max-width: 1024px) {
+  .grid-3 { grid-template-columns: repeat(2, 1fr); }
+}
+
 @media (max-width: 768px) {
   .hero-stats { gap: 24px; }
   .stat-num { font-size: 28px; }
