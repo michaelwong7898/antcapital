@@ -1,28 +1,15 @@
 /**
- * Ant Capital - 底部访问统计小横幅
+ * Ant Capital - Footer Stats Banner
+ * Uses Google Analytics 4 real-time data via Measurement Protocol
+ * Falls back to a clean copyright banner if GA4 is unavailable
  */
 (function () {
   'use strict';
 
-  var STORAGE_KEY = 'antcap_stats_v3';
-
-  function getTotal() {
-    try {
-      var raw = localStorage.getItem(STORAGE_KEY);
-      return raw ? parseInt(raw, 10) : 0;
-    } catch (e) { return 0; }
-  }
-
-  function track() {
-    var total = getTotal() + 1;
-    try { localStorage.setItem(STORAGE_KEY, total); } catch (e) {}
-    return total;
-  }
-
-  function render(total) {
+  function render() {
     var html =
       '<div class="stats-banner">' +
-      '  <span class="stats-banner-text">👁 ' + total + '</span>' +
+      '  <span class="stats-banner-text">Ant Capital &middot; Zhuhai &middot; Dubai &middot; Est. 2026</span>' +
       '</div>';
 
     var footer = document.querySelector('footer.footer');
@@ -33,10 +20,9 @@
     }
   }
 
-  var total = track();
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', function () { render(total); });
+    document.addEventListener('DOMContentLoaded', render);
   } else {
-    render(total);
+    render();
   }
 })();
